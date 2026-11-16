@@ -1,0 +1,14 @@
+#!/bin/sh
+# 703T_SSH_MANAGED_V1
+SERVICE=/opt/703t-ssh/releases/__RELEASE__/service.sh
+if [ "${1:-start}" = start ] && [ -f /opt/703t-ssh/pending ]; then
+    tx=$(cat /opt/703t-ssh/pending)
+    case "$tx" in txn-__RELEASE__-[0-9]*)
+        /opt/703t-ssh/releases/__RELEASE__/health-controller.sh "/opt/703t-ssh/transactions/$tx" > /dev/null 2>&1 &
+        exit 0;;
+    esac
+fi
+if [ -x "$SERVICE" ]; then
+    "$SERVICE" "${1:-start}"
+fi
+exit 0
