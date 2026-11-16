@@ -1,0 +1,35 @@
+# Generated identities and device/account material must never be published.
+.DS_Store
+__pycache__/
+*.pyc
+.tools/
+dist/
+analysis/
+private/
+*.pcap
+*.pcapng
+*.log
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+id_ed25519*
+authorized_keys
+known_hosts*
+password.txt
+.env
+.env.*
+android/.signing/
+android/.firmware-signing/
+android/build/
+android/testing/generated/
+firmware/.ssh-access/
+firmware/build/
+firmware/testing/generated/
+# Proprietary originals and personalized flash packages stay local.
+*.tar
+*.tar.*
+*.apk
+*.img
+*.bin
